@@ -63,6 +63,7 @@ public class ListaMascotas extends AppCompatActivity {
         mascotas.add(new Mascota(R.drawable.cat,"Ketty"));
         mascotas.add(new Mascota(R.drawable.lion,"Liony"));
         mascotas.add(new Mascota(R.drawable.bull,"Doggy"));
+        mascotas.add(new Mascota(R.drawable.panda,"Pandy"));
     }
 
 }
