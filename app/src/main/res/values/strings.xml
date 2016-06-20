@@ -11,4 +11,5 @@
     <string name="nombre_completo">Nombre Completo</string>
     <string name="correo_electronico">Correo Electronico</string>
     <string name="mensaje">Mensaje</string>
+    <string name="enviar">Enviar</string>
 </resources>

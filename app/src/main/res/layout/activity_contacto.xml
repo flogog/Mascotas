@@ -15,7 +15,8 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mascotaActionBar">
 
         <android.support.design.widget.TextInputEditText
 
@@ -29,7 +30,8 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/etCorreo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNombre">
 
         <android.support.design.widget.TextInputEditText
 
@@ -43,17 +45,37 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/etMensaje"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCorreo">
 
         <android.support.design.widget.TextInputEditText
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/mensaje"/>
+            android:layout_height="match_parent"
+            android:hint="@string/mensaje"
+            android:height="@dimen/textSize"
+            android:inputType="textLongMessage|text|textMultiLine" />
 
 
     </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/etBoton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etMensaje"
+        >
+
+        <android.support.design.widget.FloatingActionButton
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/fivestar"
+            android:hint="@string/enviar"/>
+
+
+    </android.support.design.widget.TextInputLayout>
 
 
 </RelativeLayout>
