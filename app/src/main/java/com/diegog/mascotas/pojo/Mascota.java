@@ -1,4 +1,4 @@
-package com.diegog.mascotas;
+package com.diegog.mascotas.pojo;
 
 import java.io.Serializable;
 

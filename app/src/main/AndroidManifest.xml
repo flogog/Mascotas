@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.diegog.mascotas">
+    package="com.diegog.mascotas" >
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ListaMascotas">
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.diegog.mascotas.ListaMascotas" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Favoritas"
-            android:parentActivityName=".ListaMascotas">
-            <!-- Soporte v4.0 _-->
+        <activity
+            android:name="com.diegog.mascotas.Favoritas"
+            android:parentActivityName="com.diegog.mascotas.ListaMascotas" >
+
+            <!-- Soporte v4.0 _ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ListaMascotas"
-                ></meta-data>
-
+                android:value="com.diegog.mascotas.ListaMascotas" />
+        </activity>
+        <activity android:name="com.diegog.mascotas.menu.Contacto" />
+        <activity android:name="com.diegog.mascotas.menu.Acerca" >
         </activity>
     </application>
 

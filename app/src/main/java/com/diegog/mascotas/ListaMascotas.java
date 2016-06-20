@@ -1,69 +1,93 @@
 package com.diegog.mascotas;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
-import java.lang.reflect.Array;
+import com.diegog.mascotas.adapter.MascotaAdapter;
+import com.diegog.mascotas.adapter.MascotaPageAdapter;
+import com.diegog.mascotas.fragment.MascotasFragment;
+import com.diegog.mascotas.fragment.MascotasRecyclerViewFragment;
+import com.diegog.mascotas.menu.Acerca;
+import com.diegog.mascotas.menu.Contacto;
+import com.diegog.mascotas.pojo.Mascota;
+
 import java.util.ArrayList;
 
 public class ListaMascotas extends AppCompatActivity {
 
-    private ArrayList<Mascota> mascotas;
-    private RecyclerView rvListaMascotas;
+
+    private Toolbar mascotaActionBar;
+    private TabLayout mascotaTabLayout;
+    private ViewPager mascotaViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_mascotas);
-        Toolbar mascotaActionBar = (Toolbar) findViewById(R.id.mascotaActionBar);
 
-        rvListaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+        mascotaActionBar = (Toolbar) findViewById(R.id.toolbar);
+        mascotaTabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        mascotaViewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        rvListaMascotas.setLayoutManager(llm);
-
-        inicializaMascotas();
-        inicializarAdaptador();
+        mascotaActionBar.setTitle(R.string.app_name);
 
 
-    }
+        setUpViewPager();
 
-    public void irFavoritos(View v){
-
-        Intent intent = new Intent(this, Favoritas.class);
-        intent.putExtra(getResources().getString(R.string.favoritos),getFavoriteMascotas());
-        startActivity(intent);
-    }
-
-    public ArrayList<Mascota> getFavoriteMascotas(){
-        ArrayList<Mascota> favoritas = new ArrayList<Mascota>();
-        for(Mascota check: mascotas){
-            if(check.isFavorito()){
-                favoritas.add(check);
-            }
+        if(mascotaActionBar!=null) {
+            setSupportActionBar(mascotaActionBar);
         }
-        return favoritas;
+
     }
 
-    public void inicializarAdaptador(){
-        MascotaAdapter mAdapter = new MascotaAdapter(mascotas);
-        rvListaMascotas.setAdapter(mAdapter);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent ;
+        switch (item.getItemId()){
+            case R.id.mContacto:
+                intent = new Intent(this, Contacto.class);
+                startActivity(intent);
+                break;
+            case R.id.mAcercaDe:
+                intent = new Intent(this, Acerca.class);
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
-    public void inicializaMascotas(){
-        mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota(R.drawable.mnky,"Dumpy"));
-        mascotas.add(new Mascota(R.drawable.cat,"Ketty"));
-        mascotas.add(new Mascota(R.drawable.lion,"Liony"));
-        mascotas.add(new Mascota(R.drawable.bull,"Doggy"));
-        mascotas.add(new Mascota(R.drawable.panda,"Pandy"));
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_mascota,menu);
+        return true;
+    }
+
+
+
+    private ArrayList<Fragment> agregarFragmentsMascota(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new MascotasRecyclerViewFragment());
+        fragments.add(new MascotasFragment());
+        return fragments;
+    }
+
+    private void setUpViewPager(){
+        mascotaViewPager.setAdapter(new MascotaPageAdapter(getSupportFragmentManager(),agregarFragmentsMascota()));
+        mascotaTabLayout.setupWithViewPager(mascotaViewPager);
+        mascotaTabLayout.getTabAt(0).setIcon(R.drawable.home_52);
+        mascotaTabLayout.getTabAt(1).setIcon(R.drawable.dog_footprint_48);
     }
 
 }

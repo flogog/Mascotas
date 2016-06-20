@@ -2,4 +2,10 @@
     <string name="app_name">Mascotas</string>
     <string name="mascota1">Doggy</string>
     <string name="favoritos">favoritas</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="menu_acercade">Acerca De</string>
+    <string name="resume">With 5 years of experience in IT industries working for IT Service providing knowledge and improvements for clients like Donegal Insurance Group, Deloitte, Actinver etc. 5 years of experience in the SDLC using OOP, Agile Methodologies and multiple platforms and frameworks.</string>
+    <string name="email">flogog@gmail.com</string>
+    <string name="dev_name">Diego A. Guadarrama</string>
+    <string name="mascotas">Mascotas</string>
 </resources>
