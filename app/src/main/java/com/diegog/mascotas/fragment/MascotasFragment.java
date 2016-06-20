@@ -18,6 +18,7 @@ import com.diegog.mascotas.adapter.MascotaAdapter;
 import com.diegog.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;
+import android.support.v7.widget.GridLayoutManager;
 
 /**
  * Created by flogog on 6/19/16.
@@ -37,9 +38,9 @@ public class MascotasFragment extends Fragment {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_mascotas,container,false);
 
-        rvListaMascotas = (RecyclerView) v.findViewById(R.id.rvMascotas);
+        rvListaMascotas = (RecyclerView) v.findViewById(R.id.rvMascotasFavorito);
 
-        GridLayoutManager glm = new GridLayoutManager();
+        GridLayoutManager glm = new GridLayoutManager(MascotasFragment.this.getContext(),2);
         glm.setOrientation(GridLayoutManager.HORIZONTAL);
 
         rvListaMascotas.setLayoutManager(glm);
@@ -57,11 +58,14 @@ public class MascotasFragment extends Fragment {
 
     public void inicializaMascotas(){
         mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota(R.drawable.mnky,"Chimp"));
-        mascotas.add(new Mascota(R.drawable.mnky,"Chimp"));
-        mascotas.add(new Mascota(R.drawable.mnky,"Lion"));
-        mascotas.add(new Mascota(R.drawable.mnky,"Chimp"));
-        mascotas.add(new Mascota(R.drawable.mnky,"Pand"));
+        mascotas.add(new Mascota(R.drawable.lion,"Chimp"));
+        mascotas.add(new Mascota(R.drawable.lion,"Chimp"));
+        mascotas.add(new Mascota(R.drawable.lion,"Lion"));
+        mascotas.add(new Mascota(R.drawable.lion,"Chimp"));
+        mascotas.add(new Mascota(R.drawable.lion,"Pand"));
+        mascotas.add(new Mascota(R.drawable.lion,"Lion"));
+        mascotas.add(new Mascota(R.drawable.lion,"Chimp"));
+        mascotas.add(new Mascota(R.drawable.lion,"Pand"));
     }
 
 

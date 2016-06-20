@@ -8,4 +8,7 @@
     <string name="email">flogog@gmail.com</string>
     <string name="dev_name">Diego A. Guadarrama</string>
     <string name="mascotas">Mascotas</string>
+    <string name="nombre_completo">Nombre Completo</string>
+    <string name="correo_electronico">Correo Electronico</string>
+    <string name="mensaje">Mensaje</string>
 </resources>
