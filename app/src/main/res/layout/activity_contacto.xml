@@ -52,30 +52,21 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/mensaje"
-            android:height="@dimen/textSize"
-            android:inputType="textLongMessage|text|textMultiLine" />
+            android:hint="@string/mensaje"/>
 
 
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/etBoton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etMensaje"
-        >
-
-        <android.support.design.widget.FloatingActionButton
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/fivestar"
-            android:hint="@string/enviar"/>
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/dog_bone_52">
 
 
-    </android.support.design.widget.TextInputLayout>
+    </android.support.design.widget.FloatingActionButton>
 
 
 </RelativeLayout>

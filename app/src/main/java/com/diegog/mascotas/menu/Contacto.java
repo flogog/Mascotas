@@ -1,5 +1,6 @@
 package com.diegog.mascotas.menu;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import com.diegog.mascotas.R;
 
 public class Contacto extends AppCompatActivity {
 
-    private Button botonEnviar;
+    private FloatingActionButton botonEnviar;
 
 
     @Override
@@ -33,7 +34,7 @@ public class Contacto extends AppCompatActivity {
         });
 
 
-        botonEnviar = (Button) findViewById(R.id.etBoton);
+        botonEnviar = (FloatingActionButton) findViewById(R.id.etBoton);
 
         botonEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
