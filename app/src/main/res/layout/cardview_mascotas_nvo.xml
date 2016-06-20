@@ -17,24 +17,25 @@
             android:layout_height="200dp"
             android:src="@drawable/bull"
             android:layout_gravity="center"/>
-        <FrameLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp">
-            <TextView
-                android:id="@+id/tvNombreMascotaCV"
-                android:layout_width="130dp"
-                android:layout_height="50dp"
-                android:text="@string/mascota1"
-                android:textSize="@dimen/textSize"
-                android:textStyle="bold"/>
-            <ImageView
-                android:id="@+id/ivImgFavCV"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/dog_bone_52"
-                android:layout_gravity="end" />
 
-        </FrameLayout>
+        <TextView
+            android:id="@+id/tvNombreMascotaCV"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="@string/mascota1"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold"
+            android:layout_row="1"
+            android:layout_column="0" />
+
+        <ImageView
+            android:id="@+id/ivImgFavCV"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/dog_bone_52"
+            android:layout_gravity="end"
+            android:layout_row="2"
+            android:layout_column="0" />
 
 
     </GridLayout>

@@ -40,8 +40,8 @@ public class MascotasFragment extends Fragment {
 
         rvListaMascotas = (RecyclerView) v.findViewById(R.id.rvMascotasFavorito);
 
-        GridLayoutManager glm = new GridLayoutManager(MascotasFragment.this.getContext(),2);
-        glm.setOrientation(GridLayoutManager.HORIZONTAL);
+        GridLayoutManager glm = new GridLayoutManager(MascotasFragment.this.getContext(),4);
+       // glm.setOrientation(GridLayoutManager.HORIZONTAL);
 
         rvListaMascotas.setLayoutManager(glm);
 

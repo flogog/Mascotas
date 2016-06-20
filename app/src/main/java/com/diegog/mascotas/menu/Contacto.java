@@ -13,9 +13,6 @@ import com.diegog.mascotas.R;
 
 public class Contacto extends AppCompatActivity {
 
-    private EditText etCorreo;
-    private EditText etNombre;
-    private EditText etMensaje;
     private Button botonEnviar;
 
 
@@ -35,9 +32,6 @@ public class Contacto extends AppCompatActivity {
             }
         });
 
-        etCorreo = (EditText) findViewById(R.id.etCorreo);
-        etNombre = (EditText) findViewById(R.id.etNombre);
-        etMensaje = (EditText) findViewById(R.id.etMensaje);
 
         botonEnviar = (Button) findViewById(R.id.etBoton);
 
@@ -50,5 +44,5 @@ public class Contacto extends AppCompatActivity {
         });
 
     }
-    
+
 }
