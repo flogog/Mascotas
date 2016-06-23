@@ -15,12 +15,14 @@ import com.diegog.mascotas.R;
 import com.diegog.mascotas.adapter.MascotaAdapter;
 import com.diegog.mascotas.pojo.Mascota;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MascotasRecyclerViewFragment extends Fragment {
+public class MascotasRecyclerViewFragment extends Fragment implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private ArrayList<Mascota> mascotas;
     private RecyclerView rvListaMascotas;
@@ -72,11 +74,11 @@ public class MascotasRecyclerViewFragment extends Fragment {
 
     public void inicializaMascotas(){
         mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota(R.drawable.mnky,"Chimp"));
-        mascotas.add(new Mascota(R.drawable.cat,"Kitty"));
-        mascotas.add(new Mascota(R.drawable.lion,"Lion"));
-        mascotas.add(new Mascota(R.drawable.bull,"Doggy"));
-        mascotas.add(new Mascota(R.drawable.panda,"Pand"));
+        mascotas.add(new Mascota(R.drawable.rsz_1mnky,"Chimp",0));
+        mascotas.add(new Mascota(R.drawable.rsz_1cat,"Kitty",0));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Lion",0));
+        mascotas.add(new Mascota(R.drawable.rsz_1bull,"Doggy",0));
+        mascotas.add(new Mascota(R.drawable.rsz_3panda,"Pand",0));
     }
 
 

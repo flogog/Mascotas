@@ -23,12 +23,12 @@ import android.support.v7.widget.GridLayoutManager;
 /**
  * Created by flogog on 6/19/16.
  */
-public class MascotasFragment extends Fragment {
+public class MascotasFragmentPerfil extends Fragment {
 
     private ArrayList<Mascota> mascotas;
     private RecyclerView rvListaMascotas;
 
-    public MascotasFragment(){
+    public MascotasFragmentPerfil(){
 
     }
 
@@ -40,7 +40,10 @@ public class MascotasFragment extends Fragment {
 
         rvListaMascotas = (RecyclerView) v.findViewById(R.id.rvMascotasFavorito);
 
-        GridLayoutManager glm = new GridLayoutManager(MascotasFragment.this.getContext(),4);
+        GridLayoutManager glm = new GridLayoutManager(getActivity(),3);
+        glm.setOrientation(GridLayoutManager.VERTICAL);
+
+//        GridLayoutManager glm = new GridLayoutManager(MascotasFragment.this.getContext(),4);
        // glm.setOrientation(GridLayoutManager.HORIZONTAL);
 
         rvListaMascotas.setLayoutManager(glm);
@@ -51,6 +54,23 @@ public class MascotasFragment extends Fragment {
         return v;
     }
 
+    public void irFavoritos(View v){
+
+        Intent intent = new Intent(getActivity(), Favoritas.class);
+        intent.putExtra(getResources().getString(R.string.favoritos),getFavoriteMascotas());
+        startActivity(intent);
+    }
+
+    public ArrayList<Mascota> getFavoriteMascotas(){
+        ArrayList<Mascota> favoritas = new ArrayList<Mascota>();
+        for(Mascota check: mascotas){
+            if(check.isFavorito()){
+                favoritas.add(check);
+            }
+        }
+        return favoritas;
+    }
+
     public void inicializarAdaptador(){
         MascotaAdapter mAdapter = new MascotaAdapter(mascotas);
         rvListaMascotas.setAdapter(mAdapter);
@@ -58,14 +78,15 @@ public class MascotasFragment extends Fragment {
 
     public void inicializaMascotas(){
         mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota(R.drawable.lion,"Chimp"));
-        mascotas.add(new Mascota(R.drawable.lion,"Chimp"));
-        mascotas.add(new Mascota(R.drawable.lion,"Lion"));
-        mascotas.add(new Mascota(R.drawable.lion,"Chimp"));
-        mascotas.add(new Mascota(R.drawable.lion,"Pand"));
-        mascotas.add(new Mascota(R.drawable.lion,"Lion"));
-        mascotas.add(new Mascota(R.drawable.lion,"Chimp"));
-        mascotas.add(new Mascota(R.drawable.lion,"Pand"));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Chimp",2));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Chimp",5));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Lion",6));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Chimp",12));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Pand",3));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Lion",1));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Chimp",0));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Pand",5));
+        mascotas.add(new Mascota(R.drawable.rsz_1lion,"Pand",2));
     }
 
 

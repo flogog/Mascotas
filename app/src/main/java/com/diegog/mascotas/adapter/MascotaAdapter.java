@@ -35,10 +35,13 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
 
         holder.imgFotoMascotaCV.setImageResource(mascota.getFoto());
         holder.tvNombreMascotaCV.setText(mascota.getNombre());
+        holder.tvFavCV.setText(String.valueOf(mascota.getFav())+" Likes");
         holder.ivImgFavCV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mascota.setFavorito(true);
+                mascota.setFav(mascota.getFav()+1);
+                notifyDataSetChanged();
             }
         });
 
@@ -55,6 +58,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
         private ImageView   imgFotoMascotaCV;
         private TextView    tvNombreMascotaCV;
         private ImageView   ivImgFavCV;
+        private TextView    tvFavCV;
 
         public MascotaViewHolder(View itemView) {
             super(itemView);
@@ -62,6 +66,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
             imgFotoMascotaCV    = (ImageView)   itemView.findViewById(R.id.ivImgMascotaCV);
             tvNombreMascotaCV   = (TextView)    itemView.findViewById(R.id.tvNombreMascotaCV);
             ivImgFavCV          = (ImageView)   itemView.findViewById(R.id.ivImgFavCV);
+            tvFavCV             = (TextView)    itemView.findViewById(R.id.tvFavCV);
 
 
         }

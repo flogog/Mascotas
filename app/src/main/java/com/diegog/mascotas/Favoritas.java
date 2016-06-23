@@ -1,5 +1,6 @@
 package com.diegog.mascotas;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.diegog.mascotas.adapter.MascotaAdapter;
+import com.diegog.mascotas.fragment.MascotasRecyclerViewFragment;
 import com.diegog.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -46,9 +48,20 @@ public class Favoritas extends AppCompatActivity {
 
         Bundle param    =   getIntent().getExtras();
 
-        mascotas   = (ArrayList<Mascota>) param.getSerializable(getResources().getString(R.string.favoritos));
+        ArrayList<Fragment> fragments = (ArrayList<Fragment>) param.getSerializable(getResources().getString(R.string.favoritos));
+        mascotas   = ((MascotasRecyclerViewFragment) fragments.get(0)).getFavoriteMascotas();
 
         inicializarAdaptador();
+    }
+
+    public ArrayList<Mascota> getFavoriteMascotas(){
+        ArrayList<Mascota> favoritas = new ArrayList<Mascota>();
+        for(Mascota check: mascotas){
+            if(check.isFavorito()){
+                favoritas.add(check);
+            }
+        }
+        return favoritas;
     }
 
 

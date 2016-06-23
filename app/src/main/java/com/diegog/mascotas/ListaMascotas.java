@@ -15,7 +15,7 @@ import android.view.View;
 
 import com.diegog.mascotas.adapter.MascotaAdapter;
 import com.diegog.mascotas.adapter.MascotaPageAdapter;
-import com.diegog.mascotas.fragment.MascotasFragment;
+import com.diegog.mascotas.fragment.MascotasFragmentPerfil;
 import com.diegog.mascotas.fragment.MascotasRecyclerViewFragment;
 import com.diegog.mascotas.menu.Acerca;
 import com.diegog.mascotas.menu.Contacto;
@@ -24,6 +24,8 @@ import com.diegog.mascotas.pojo.Mascota;
 import java.util.ArrayList;
 
 public class ListaMascotas extends AppCompatActivity {
+
+    private ArrayList<Mascota> mascotas;
 
 
     private Toolbar mascotaActionBar;
@@ -50,6 +52,16 @@ public class ListaMascotas extends AppCompatActivity {
 
     }
 
+    public ArrayList<Mascota> getFavoriteMascotas(){
+        ArrayList<Mascota> favoritas = new ArrayList<Mascota>();
+        for(Mascota check: mascotas){
+            if(check.isFavorito()){
+                favoritas.add(check);
+            }
+        }
+        return favoritas;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent ;
@@ -60,6 +72,11 @@ public class ListaMascotas extends AppCompatActivity {
                 break;
             case R.id.mAcercaDe:
                 intent = new Intent(this, Acerca.class);
+                startActivity(intent);
+                break;
+            case R.id.iFavoritos:
+                intent = new Intent(this, Favoritas.class);
+                intent.putExtra(getResources().getString(R.string.favoritos),agregarFragmentsMascota());
                 startActivity(intent);
                 break;
         }
@@ -79,7 +96,7 @@ public class ListaMascotas extends AppCompatActivity {
     private ArrayList<Fragment> agregarFragmentsMascota(){
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(new MascotasRecyclerViewFragment());
-        fragments.add(new MascotasFragment());
+        fragments.add(new MascotasFragmentPerfil());
         return fragments;
     }
 
