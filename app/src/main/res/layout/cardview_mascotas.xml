@@ -48,7 +48,7 @@
                 android:id="@+id/ivImgFavCV"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/dog_bone_52"
+                android:src="@drawable/thumb_up_48"
                 android:layout_gravity="center_vertical"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"

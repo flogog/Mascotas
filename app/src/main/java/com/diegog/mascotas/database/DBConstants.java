@@ -9,6 +9,7 @@ public final class DBConstants {
     public static final int    DATABASE_VERSION     =   1;
 
     public static final String TABLE_MASCOTA        = "mascota";
+    public static final String TABLE_MASCOTA_FAVORITOS        = "mascota_favoritos";
     public static final String TABLE_MASCOTA_ID     = "id";
     public static final String TABLE_MASCOTA_FOTO   = "foto";
     public static final String TABLE_MASCOTA_NOMBRE = "nombre";

@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.diegog.mascotas.R;
 import com.diegog.mascotas.pojo.Mascota;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.prefs.BackingStoreException;
 
@@ -17,17 +18,21 @@ import java.util.prefs.BackingStoreException;
 public class ConstructorMascotas {
 
     Context context;
-    private static final int LIKE=0;
+    DataBase db;
+    private static final int LIKE=1;
     public ConstructorMascotas(Context context) {
-       this.context = context;
+        this.db = new DataBase(context);
+        this.context = context;
     }
 
     public ArrayList<Mascota> getMascotas(){
-        ArrayList<Mascota> mascotas = new ArrayList<Mascota>();
-
-        DataBase db = new DataBase(context);
         insertMascotas(db);
         return db.queryAllMascotas();
+    }
+
+    public ArrayList<Mascota> getMascotasFav(){
+        insertFavMascotas(db);
+        return db.queryAllMascotasFav();
     }
 
     public void insertMascotas(DataBase db){
@@ -63,7 +68,6 @@ public class ConstructorMascotas {
     }
 
     public void likeMascota(Mascota mascota){
-        DataBase db = new DataBase(context);
         ContentValues contentValues = new ContentValues();
         contentValues.put(DBConstants.TABLE_MASCOTA_LIKES_ID_MASCOTA,mascota.getId());
         contentValues.put(DBConstants.TABLE_MASCOTA_LIKES_FAV,LIKE);
@@ -71,7 +75,19 @@ public class ConstructorMascotas {
     }
 
     public int getLikeMascota(Mascota mascota){
-        DataBase db =  new DataBase(context);
         return db.countLikes(mascota);
     }
+
+    public void insertFavMascotas(DataBase db){
+        ArrayList<Mascota> favoritas = db.queryFavMascotas();
+        for(Mascota favorito : favoritas){
+            ContentValues contentValues = new ContentValues();
+
+            contentValues.put(DBConstants.TABLE_MASCOTA_ID,favorito.getId());
+            contentValues.put(DBConstants.TABLE_MASCOTA_FOTO,favorito.getFoto());
+            contentValues.put(DBConstants.TABLE_MASCOTA_NOMBRE,favorito.getNombre());
+            db.insertInTable(contentValues,DBConstants.TABLE_MASCOTA_FAVORITOS);
+        }
+    }
+
 }

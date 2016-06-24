@@ -48,23 +48,7 @@ public class MascotasRecyclerViewFragment extends Fragment implements IMascotasR
     public void irFavoritos(View v){
 
         Intent intent = new Intent(getActivity(), Favoritas.class);
-        intent.putExtra(getResources().getString(R.string.favoritos),getFavoriteMascotas());
         startActivity(intent);
-    }
-
-    public ArrayList<Mascota> getFavoriteMascotas(){
-        ArrayList<Mascota> favoritas = new ArrayList<Mascota>();
-        for(Mascota check: mascotas){
-            if(check.isFavorito()){
-                favoritas.add(check);
-            }
-        }
-        return favoritas;
-    }
-
-    public void inicializarAdaptador(){
-        MascotaAdapter mAdapter = new MascotaAdapter(mascotas);
-        rvListaMascotas.setAdapter(mAdapter);
     }
 
 

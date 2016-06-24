@@ -10,15 +10,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.diegog.mascotas.adapter.MascotaAdapter;
+import com.diegog.mascotas.fragment.IMascotasRecyclerViewFragment;
 import com.diegog.mascotas.fragment.MascotasRecyclerViewFragment;
 import com.diegog.mascotas.pojo.Mascota;
+import com.diegog.mascotas.presentador.IRVFragmentPresenter;
+import com.diegog.mascotas.presentador.RVFragmentPresenter;
+import com.diegog.mascotas.presentador.RVFragmentPresenterFav;
 
 import java.util.ArrayList;
 
-public class Favoritas extends AppCompatActivity {
+public class Favoritas extends AppCompatActivity implements IMascotasRecyclerViewFragment {
 
-    private ArrayList<Mascota> mascotas;
     private RecyclerView rvListaMascotas;
+    private IRVFragmentPresenter iRVFPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +32,10 @@ public class Favoritas extends AppCompatActivity {
         mascotaActionBar.setSaveFromParentEnabled(true);
         //Habilita boton atras
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mascotaActionBar.setTitle(R.string.fav_title);
+        mascotaActionBar.setLogo(R.drawable.dog_bone_52);
         mascotaActionBar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
 
-        mascotaActionBar.setTitle(R.string.app_name);
         mascotaActionBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,34 +45,29 @@ public class Favoritas extends AppCompatActivity {
 
 
         rvListaMascotas = (RecyclerView) findViewById(R.id.rvMascotasFavorito);
+        iRVFPresenter = new RVFragmentPresenterFav(this,getBaseContext());
+
+    }
+
+
+    @Override
+    public void generarLinearLayoutVertical() {
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-
         rvListaMascotas.setLayoutManager(llm);
 
-        Bundle param    =   getIntent().getExtras();
 
-        ArrayList<Fragment> fragments = (ArrayList<Fragment>) param.getSerializable(getResources().getString(R.string.favoritos));
-        mascotas   = ((MascotasRecyclerViewFragment) fragments.get(0)).getFavoriteMascotas();
-
-        inicializarAdaptador();
     }
 
-    public ArrayList<Mascota> getFavoriteMascotas(){
-        ArrayList<Mascota> favoritas = new ArrayList<Mascota>();
-        for(Mascota check: mascotas){
-            if(check.isFavorito()){
-                favoritas.add(check);
-            }
-        }
-        return favoritas;
-    }
-
-
-    public void inicializarAdaptador(){
+    @Override
+    public MascotaAdapter createAdapter(ArrayList<Mascota> mascotas) {
         MascotaAdapter mAdapter = new MascotaAdapter(mascotas);
-        rvListaMascotas.setAdapter(mAdapter);
+        return mAdapter;
     }
 
+    @Override
+    public void inicializaAdaptadorRV(MascotaAdapter mascotaAdapter) {
+        rvListaMascotas.setAdapter(mascotaAdapter);
+    }
 }

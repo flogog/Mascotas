@@ -42,7 +42,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
             public void onClick(View v) {
                 ConstructorMascotas constMascotas = new ConstructorMascotas(v.getContext());
                 constMascotas.likeMascota(mascota);
-                holder.tvFavCV.setText(String.valueOf(constMascotas.getLikeMascota(mascota)));
+                holder.tvFavCV.setText(String.valueOf(constMascotas.getLikeMascota(mascota))+" Likes");
             }
         });
 
