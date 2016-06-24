@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.diegog.mascotas.R;
+import com.diegog.mascotas.database.ConstructorMascotas;
 import com.diegog.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
     }
 
     @Override
-    public void onBindViewHolder(MascotaViewHolder holder, int position) {
+    public void onBindViewHolder(final MascotaViewHolder holder, int position) {
         final Mascota mascota = mascotas.get(position);
 
         holder.imgFotoMascotaCV.setImageResource(mascota.getFoto());
@@ -39,9 +40,9 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
         holder.ivImgFavCV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mascota.setFavorito(true);
-                mascota.setFav(mascota.getFav()+1);
-                notifyDataSetChanged();
+                ConstructorMascotas constMascotas = new ConstructorMascotas(v.getContext());
+                constMascotas.likeMascota(mascota);
+                holder.tvFavCV.setText(String.valueOf(constMascotas.getLikeMascota(mascota)));
             }
         });
 

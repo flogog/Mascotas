@@ -76,7 +76,6 @@ public class ListaMascotas extends AppCompatActivity {
                 break;
             case R.id.iFavoritos:
                 intent = new Intent(this, Favoritas.class);
-                intent.putExtra(getResources().getString(R.string.favoritos),agregarFragmentsMascota());
                 startActivity(intent);
                 break;
         }

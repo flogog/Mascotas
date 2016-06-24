@@ -15,7 +15,11 @@ public class Mascota implements Serializable {
     private boolean favorito;
     private int fav;
 
-    public Mascota(int foto, String nombre,int fav) {
+    public Mascota() {
+
+    }
+
+    public Mascota(int foto, String nombre, int fav) {
         this.foto   = foto;
         this.nombre = nombre;
         this.fav    = fav;
