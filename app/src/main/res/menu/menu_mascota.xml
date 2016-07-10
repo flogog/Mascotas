@@ -18,4 +18,9 @@
     android:title="@string/menu_acercade"
     android:orderInCategory="101"
     ></item>
+  <item
+      android:id="@+id/mInstagram"
+      android:title="@string/instagram_config"
+      android:orderInCategory="102"
+      ></item>
 </menu>

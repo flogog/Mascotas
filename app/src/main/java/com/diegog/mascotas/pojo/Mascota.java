@@ -9,14 +9,21 @@ public class Mascota implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private int id;
-    private int foto;
-    private String nombre;
-    private boolean favorito;
-    private int fav;
+    private String      id;
+    private int         foto;
+    private String      nombre;
+    private String      url;
+    private int         fav;
 
-    public Mascota() {
+    public Mascota(){
 
+    }
+
+    public Mascota(String id, String nombre, String url, int fav) {
+        this.id   = id;
+        this.nombre = nombre;
+        this.url    = url;
+        this.fav    = fav;
     }
 
     public Mascota(int foto, String nombre, int fav) {
@@ -25,17 +32,17 @@ public class Mascota implements Serializable {
         this.fav    = fav;
     }
 
-    public Mascota(int foto, String nombre, boolean favorito) {
+    public Mascota(int foto, String nombre, String url) {
         this.foto       = foto;
         this.nombre     = nombre;
-        this.favorito   = favorito;
+        this.url        = url;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -55,12 +62,16 @@ public class Mascota implements Serializable {
         this.nombre = nombre;
     }
 
-    public boolean isFavorito() {
-        return favorito;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public void setFavorito(boolean favorito) {
-        this.favorito = favorito;
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public int getFav() { return fav;   }

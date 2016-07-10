@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.diegog.mascotas" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,7 +27,8 @@
                 android:value="com.diegog.mascotas.ListaMascotas" />
         </activity>
         <activity android:name="com.diegog.mascotas.menu.Contacto" />
-        <activity android:name="com.diegog.mascotas.menu.Acerca" >
+        <activity android:name="com.diegog.mascotas.menu.Acerca" />
+        <activity android:name="com.diegog.mascotas.menu.Instagram" >
         </activity>
     </application>
 

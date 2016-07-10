@@ -13,4 +13,7 @@
     <string name="mensaje">Mensaje</string>
     <string name="enviar">Enviar</string>
     <string name="fav_title">Favoritos</string>
+    <string name="_like_cardview">0</string>
+    <string name="instagram_config">Configurar Cuenta</string>
+    <string name="user_insta">Teclea Usuario Instagram</string>
 </resources>

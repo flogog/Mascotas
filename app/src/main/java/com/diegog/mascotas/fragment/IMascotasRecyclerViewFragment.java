@@ -15,6 +15,8 @@ public interface IMascotasRecyclerViewFragment {
 
     public void generarLinearLayoutVertical();
 
+    public void generarGridLayout();
+
     public MascotaAdapter createAdapter(ArrayList<Mascota> mascotas);
 
     public void inicializaAdaptadorRV(MascotaAdapter mascotaAdapter);

@@ -1,6 +1,5 @@
 package com.diegog.mascotas.database;
 
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -73,7 +72,7 @@ public class DataBase extends SQLiteOpenHelper {
 
         while(rows.moveToNext()){
             Mascota nuevaMascota = new Mascota();
-            nuevaMascota.setId(rows.getInt(0));
+            nuevaMascota.setId(rows.getString(0));
             nuevaMascota.setFoto(rows.getInt(1));
             nuevaMascota.setNombre(rows.getString(2));
 
@@ -119,7 +118,7 @@ public class DataBase extends SQLiteOpenHelper {
 
         while(rows.moveToNext()){
             Mascota nuevaMascota = new Mascota();
-            nuevaMascota.setId(rows.getInt(0));
+            nuevaMascota.setId(rows.getString(0));
             nuevaMascota.setFoto(rows.getInt(1));
             nuevaMascota.setNombre(rows.getString(2));
 
@@ -154,7 +153,7 @@ public class DataBase extends SQLiteOpenHelper {
 
         while(rows.moveToNext()){
             Mascota nuevaMascota = new Mascota();
-            nuevaMascota.setId(rows.getInt(0));
+            nuevaMascota.setId(rows.getString(0));
             nuevaMascota.setFoto(rows.getInt(1));
             nuevaMascota.setNombre(rows.getString(2));
 

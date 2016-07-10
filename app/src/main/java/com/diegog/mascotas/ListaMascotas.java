@@ -19,6 +19,7 @@ import com.diegog.mascotas.fragment.MascotasFragmentPerfil;
 import com.diegog.mascotas.fragment.MascotasRecyclerViewFragment;
 import com.diegog.mascotas.menu.Acerca;
 import com.diegog.mascotas.menu.Contacto;
+import com.diegog.mascotas.menu.Instagram;
 import com.diegog.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -52,16 +53,6 @@ public class ListaMascotas extends AppCompatActivity {
 
     }
 
-    public ArrayList<Mascota> getFavoriteMascotas(){
-        ArrayList<Mascota> favoritas = new ArrayList<Mascota>();
-        for(Mascota check: mascotas){
-            if(check.isFavorito()){
-                favoritas.add(check);
-            }
-        }
-        return favoritas;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent ;
@@ -72,6 +63,10 @@ public class ListaMascotas extends AppCompatActivity {
                 break;
             case R.id.mAcercaDe:
                 intent = new Intent(this, Acerca.class);
+                startActivity(intent);
+                break;
+            case R.id.mInstagram:
+                intent = new Intent(this, Instagram.class);
                 startActivity(intent);
                 break;
             case R.id.iFavoritos:

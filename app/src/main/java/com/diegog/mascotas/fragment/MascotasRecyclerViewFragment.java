@@ -4,6 +4,7 @@ package com.diegog.mascotas.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -63,8 +64,14 @@ public class MascotasRecyclerViewFragment extends Fragment implements IMascotasR
     }
 
     @Override
+    public void generarGridLayout() {
+        GridLayoutManager glm = new GridLayoutManager(getContext(),2);
+        rvListaMascotas.setLayoutManager(glm);
+    }
+
+    @Override
     public MascotaAdapter createAdapter(ArrayList<Mascota> mascotas) {
-        MascotaAdapter mAdapter = new MascotaAdapter(mascotas);
+        MascotaAdapter mAdapter = new MascotaAdapter(mascotas,this.getActivity());
         return mAdapter;
     }
 

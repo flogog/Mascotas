@@ -1,5 +1,6 @@
 package com.diegog.mascotas.adapter;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +20,11 @@ import java.util.ArrayList;
 public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaViewHolder> {
 
     ArrayList<Mascota> mascotas;
+    Activity activity;
 
-    public MascotaAdapter(ArrayList<Mascota> mascotas) {
+    public MascotaAdapter(ArrayList<Mascota> mascotas, Activity activity) {
         this.mascotas = mascotas;
+        this.activity = activity;
     }
 
     @Override
@@ -40,7 +43,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
         holder.ivImgFavCV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConstructorMascotas constMascotas = new ConstructorMascotas(v.getContext());
+                ConstructorMascotas constMascotas = new ConstructorMascotas(activity);
                 constMascotas.likeMascota(mascota);
                 holder.tvFavCV.setText(String.valueOf(constMascotas.getLikeMascota(mascota))+" Likes");
             }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/mascotaActionBar"
+        layout="@layout/actionbar_mascota"
+        >
+
+    </include>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mascotas"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:id="@+id/tvMascotaTitulo"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/mascotaActionBar"
+        android:layout_centerHorizontal="true" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/etUser"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMascotaTitulo"
+        android:layout_alignStart="@+id/tvMascotaTitulo"
+        android:layout_alignLeft="@id/tvMascotaTitulo">
+
+        <android.support.design.widget.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/user_insta"/>
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.VisibilityAwareImageButton
+        android:id="@+id/etGuardarCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/insta"
+        android:layout_below="@+id/etUser"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp">
+
+
+    </android.support.design.widget.VisibilityAwareImageButton>
+
+</RelativeLayout>
