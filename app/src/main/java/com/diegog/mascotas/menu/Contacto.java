@@ -9,12 +9,14 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.diegog.mascotas.R;
+import com.diegog.mascotas.mail.SendMail;
 
 public class Contacto extends AppCompatActivity {
 
@@ -59,12 +61,17 @@ public class Contacto extends AppCompatActivity {
                 sendEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{correo});
                 sendEmail.putExtra(Intent.EXTRA_TEXT, comentario);
                 sendEmail.putExtra(Intent.EXTRA_SUBJECT, "Mensaje enviado desde APP por " + nombre);
-                startActivity(Intent.createChooser(sendEmail, "Elige una aplicación: "));
+
+
+
                 Toast.makeText(Contacto.this,"Mensaje Enviado",Toast.LENGTH_SHORT).show();
+
 
             }
         });
 
     }
+
+
 
 }
