@@ -29,7 +29,8 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ivImgMascotaCV">
+                android:layout_below="@id/ivImgMascotaCV"
+                android:id="@+id/frameLayout">
 
                 <TextView
                     android:id="@+id/tvNombreMascotaCV"
@@ -52,17 +53,18 @@
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/ivImgMascotaCV"
                     android:layout_toStartOf="@+id/ivImgMascotaCV" />
-                <ImageView
-                    android:id="@+id/ivImgFavCV"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/thumb_up_48"
-                    android:layout_below="@+id/ivImgMascotaCV"
-                    android:layout_alignRight="@+id/tvNombreMascotaCV"
-                    android:layout_alignEnd="@+id/tvNombreMascotaCV" />
 
             </FrameLayout>
 
+            <ImageView
+                android:id="@+id/ivImgFavCV"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/thumb_up_48"
+                android:layout_alignBottom="@+id/frameLayout"
+                android:layout_alignRight="@+id/ivImgMascotaCV"
+                android:layout_alignEnd="@+id/ivImgMascotaCV"
+                />
 
 
         </RelativeLayout>

@@ -33,4 +33,7 @@ public interface IEndpointsAPI {
     @POST(ConstantsRestAPI.HEROKU_POST_USER)
     Call<UserResponse> registerHerokuUser(@Field("dispositivo") String dispositivo, @Field("user") String user);
 
+    @GET(ConstantsRestAPI.HEROKU_POST_LIKE)
+    Call<UserResponse> registerLike(@Path("foto") String foto, @Path("dispositivo") String dispositivo, @Path("usuario") String usuario);
+
 }

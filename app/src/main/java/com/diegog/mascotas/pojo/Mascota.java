@@ -14,16 +14,18 @@ public class Mascota implements Serializable {
     private String      nombre;
     private String      url;
     private int         fav;
+    private String      idLike;
 
     public Mascota(){
 
     }
 
-    public Mascota(String id, String nombre, String url, int fav) {
+    public Mascota(String id, String nombre, String url, int fav, String idLike) {
         this.id   = id;
         this.nombre = nombre;
         this.url    = url;
         this.fav    = fav;
+        this.idLike = idLike;
     }
 
     public Mascota(int foto, String nombre, int fav) {
@@ -77,4 +79,12 @@ public class Mascota implements Serializable {
     public int getFav() { return fav;   }
 
     public void setFav(int fav) {  this.fav = fav;    }
+
+    public String getIdLike() {
+        return idLike;
+    }
+
+    public void setIdLike(String idLike) {
+        this.idLike = idLike;
+    }
 }

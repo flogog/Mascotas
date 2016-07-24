@@ -3,19 +3,29 @@ package com.diegog.mascotas.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.diegog.mascotas.R;
 import com.diegog.mascotas.database.ConstructorMascotas;
 import com.diegog.mascotas.pojo.Mascota;
+import com.diegog.mascotas.restAPI.IEndpointsAPI;
+import com.diegog.mascotas.restAPI.adapter.RestAdapter;
+import com.diegog.mascotas.restAPI.model.UserResponse;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by flogog on 6/26/16.
@@ -24,10 +34,12 @@ public class PerfilAdapter extends RecyclerView.Adapter<PerfilAdapter.PerfilView
     ArrayList<Mascota> mascotas;
 
     private Activity activity;
+    private Context context;
 
     public PerfilAdapter(ArrayList<Mascota> mascotas, Activity activity) {
         this.mascotas = mascotas;
         this.activity = activity;
+        this.context  = activity.getApplicationContext();
     }
 
     @Override
@@ -45,6 +57,14 @@ public class PerfilAdapter extends RecyclerView.Adapter<PerfilAdapter.PerfilView
                 .into(holder.imgFotoMascotaCV);
         //holder.imgFotoMascotaCV.setImageResource(mascota.getFoto());
         holder.tvFavCV.setText(String.valueOf(mascota.getFav())+" Likes");
+
+        holder.imgLikeCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String dispositivoID    = FirebaseInstanceId.getInstance().getToken();
+                registrarInstagramLike(mascota.getIdLike(),dispositivoID,mascota.getId());
+            }
+        });
 
     }
 
@@ -67,8 +87,29 @@ public class PerfilAdapter extends RecyclerView.Adapter<PerfilAdapter.PerfilView
             imgLikeCV           = (ImageView)   itemView.findViewById(R.id.ivImgLikeCV);
             tvFavCV             = (TextView)    itemView.findViewById(R.id.tvFavCV);
 
+
         }
 
+    }
+
+    private void registrarInstagramLike(String foto, String dispositivo, String usuario){
+        RestAdapter restAPI         =   new RestAdapter();
+        IEndpointsAPI endpoints       =   restAPI.startHerokuRestAPI();
+        Call<UserResponse> userResponseCall =   endpoints.registerLike(foto,dispositivo,usuario);
+
+        userResponseCall.enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                String resp = response.body().getResp();
+                Toast.makeText(context,resp,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                Toast.makeText(context,"Registrar Usuario Error Try Again", Toast.LENGTH_LONG).show();
+                Log.i("Error en la conextion",t.toString());
+            }
+        });
     }
 }
 
