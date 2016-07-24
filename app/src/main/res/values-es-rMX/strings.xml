@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mascotas</string>
     <string name="mascota1">Doggy</string>
@@ -16,6 +17,4 @@
     <string name="_like_cardview">0</string>
     <string name="instagram_config">Configurar Cuenta</string>
     <string name="user_insta">Teclea Usuario Instagram</string>
-    <string name="connection_error">Error en la conneccion, Try Again</string>
-    <string name="log_error_connection">Error en la conextion</string>
 </resources>

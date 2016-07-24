@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="mascota1">Doggy</string>
+    <string name="favoritos">Bookmarks</string>
+    <string name="menu_contacto">Contact</string>
+    <string name="menu_acercade">About</string>
+    <string name="resume">With 5 years of experience in IT industries working for IT Service providing knowledge and improvements for clients like Donegal Insurance Group, Deloitte, Actinver etc. 5 years of experience in the SDLC using OOP, Agile Methodologies and multiple platforms and frameworks.</string>
+    <string name="email">flogog@gmail.com</string>
+    <string name="dev_name">Diego A. Guadarrama</string>
+    <string name="mascotas">Petstore</string>
+    <string name="nombre_completo">Full Name</string>
+    <string name="correo_electronico">Email</string>
+    <string name="mensaje">Message</string>
+    <string name="enviar">Send</string>
+    <string name="fav_title">Favs</string>
+    <string name="_like_cardview">0</string>
+    <string name="instagram_config">Setup Instagramm</string>
+    <string name="user_insta">Type your instagram user</string>
+</resources>

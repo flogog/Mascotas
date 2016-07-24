@@ -107,8 +107,8 @@ public class RVFragmentPresenterPerfil implements IRVFragmentPresenterPerfil {
 
             @Override
             public void onFailure(Call<MascotaResponse> call, Throwable throwable) {
-                Toast.makeText(context,"Error en la conextion, Try Again", Toast.LENGTH_LONG);
-                Log.i("Error en la conextion",throwable.toString());
+                Toast.makeText(context, R.string.connection_error, Toast.LENGTH_LONG).show();
+                Log.i(context.getString(R.string.log_error_connection),throwable.toString());
             }
         });
 
@@ -121,21 +121,31 @@ public class RVFragmentPresenterPerfil implements IRVFragmentPresenterPerfil {
         IEndpointsAPI   endpointsAPI    = restAdapter.startConnectionRestAPI(mediaRecentGson);
         Call<MascotaResponse>    responseCall    = endpointsAPI.getUserId(username);
 
-        System.out.println("-------------"+responseCall.toString());
+        //System.out.println("-------------"+responseCall.toString());
         responseCall.enqueue(new Callback<MascotaResponse>() {
             @Override
             public void onResponse(Call<MascotaResponse> call, Response<MascotaResponse> response) {
                 MascotaResponse mascotaResponse = response.body();
                 System.out.println("+++++++++ "+mascotaResponse.getUserId());
                 getMediaByUser(mascotaResponse.getUserId());
+                createSystemsPreference(mascotaResponse.getUserId());
             }
 
             @Override
             public void onFailure(Call<MascotaResponse> call, Throwable throwable) {
-                Toast.makeText(context,"Error en la conextion, Try Again", Toast.LENGTH_LONG);
+                Toast.makeText(context,"Error en la conextion, Try Again", Toast.LENGTH_LONG).show();
                 Log.i("Error en la conextion",throwable.toString());
             }
         });
+    }
+
+    private void createSystemsPreference(String idInstagram){
+        SharedPreferences preferencias =  this.context.getSharedPreferences("WSHeroku", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putString("idInstagram",idInstagram);
+
+        editor.apply();
     }
 
 

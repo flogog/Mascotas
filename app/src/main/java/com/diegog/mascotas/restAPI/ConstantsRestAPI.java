@@ -25,4 +25,12 @@ public final class ConstantsRestAPI {
 
     public static final String URL_SEARCH_USER         = KEY_GET_USER + KEY_SEARCH_USER + QUESTION_MARK + SIGN_AND+KEY_ACCESS_TOKEN + ACCESS_TOKEN;
 
+
+    //ADDING CONSTANTS FOR HEROKU AND FIREBASE
+    public static final String HEROKU_ROOT_URL      = "https://guarded-springs-46050.herokuapp.com/";
+    public static final String HEROKU_POST_ID_TOKEN = "token-device/";
+    public static final String HEROKU_POST_USER     = "registrar-usuario/";
+
+
+
 }

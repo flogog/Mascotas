@@ -30,6 +30,20 @@
         <activity android:name="com.diegog.mascotas.menu.Acerca" />
         <activity android:name="com.diegog.mascotas.menu.Instagram" >
         </activity>
+
+        <service
+            android:name=".messaging.NotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".messaging.NotificationIDTokenService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

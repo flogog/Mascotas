@@ -52,5 +52,19 @@ public class RestAdapter {
         return gsonBuilder.create();
     }
 
+    /**
+     * This method will be used to call the WS previously created in heroku
+     * @return retrofit
+     * */
+    public IEndpointsAPI startHerokuRestAPI(){
+
+        Retrofit retrofit =  new Retrofit.Builder()
+                .baseUrl(ConstantsRestAPI.HEROKU_ROOT_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit.create(IEndpointsAPI.class);
+    }
+
 
 }

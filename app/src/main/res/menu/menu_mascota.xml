@@ -23,4 +23,9 @@
       android:title="@string/instagram_config"
       android:orderInCategory="102"
       ></item>
+  <item
+      android:id="@+id/mNotifications"
+      android:title="Notificaciones"
+      android:orderInCategory="103"
+      ></item>
 </menu>
