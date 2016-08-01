@@ -22,8 +22,15 @@ public interface IEndpointsAPI {
     @GET(ConstantsRestAPI.URL_GET_USER_MEDIA)
     Call<MascotaResponse> getRecentUserMedia(@Path("user-id") String userId);
 
+    @GET(ConstantsRestAPI.URL_GET_USER_NAME)
+    Call<MascotaResponse> getUserName(@Path("user-id") String userId);
+
     @GET(ConstantsRestAPI.URL_SEARCH_USER)
     Call<MascotaResponse> getUserId(@Query("q") String username);
+
+    @FormUrlEncoded
+    @POST(ConstantsRestAPI.URL_POST_FOLLOW_USER)
+    Call<UserResponse> followUserID(@Path("user-id") String userId, @Field("action") String action);
 
     @FormUrlEncoded
     @POST(ConstantsRestAPI.HEROKU_POST_ID_TOKEN)

@@ -44,6 +44,16 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
+
+        <receiver android:name=".ServiceInstragram">
+            <intent-filter>
+                <action android:name="FOLLOW_UNFOLLOW"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="TARGET"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

@@ -63,8 +63,8 @@ public class PerfilAdapter extends RecyclerView.Adapter<PerfilAdapter.PerfilView
             public void onClick(View v) {
                 String dispositivoID    = FirebaseInstanceId.getInstance().getToken();
                 registrarInstagramLike(mascota.getIdLike(),dispositivoID,mascota.getId());
-            }
-        });
+    }
+});
 
     }
 

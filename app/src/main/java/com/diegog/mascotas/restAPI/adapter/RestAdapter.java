@@ -13,6 +13,7 @@ import com.diegog.mascotas.pojo.Mascota;
 import com.diegog.mascotas.restAPI.ConstantsRestAPI;
 import com.diegog.mascotas.restAPI.IEndpointsAPI;
 import com.diegog.mascotas.restAPI.deserializador.MascotaDeserializador;
+import com.diegog.mascotas.restAPI.deserializador.Username;
 import com.diegog.mascotas.restAPI.deserializador.UsuarioInstagram;
 import com.diegog.mascotas.restAPI.model.MascotaResponse;
 import com.google.gson.Gson;
@@ -52,6 +53,13 @@ public class RestAdapter {
         return gsonBuilder.create();
     }
 
+    public Gson createGSONDeserializerUsername(){
+        GsonBuilder gsonBuilder = new GsonBuilder();
+
+        gsonBuilder.registerTypeAdapter(MascotaResponse.class,new Username());
+        return gsonBuilder.create();
+    }
+
     /**
      * This method will be used to call the WS previously created in heroku
      * @return retrofit
@@ -60,6 +68,16 @@ public class RestAdapter {
 
         Retrofit retrofit =  new Retrofit.Builder()
                 .baseUrl(ConstantsRestAPI.HEROKU_ROOT_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit.create(IEndpointsAPI.class);
+    }
+
+    public IEndpointsAPI startInstaRestAPI(){
+
+        Retrofit retrofit =  new Retrofit.Builder()
+                .baseUrl(ConstantsRestAPI.ROOT_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

@@ -16,11 +16,16 @@ public final class ConstantsRestAPI {
     public static final String KEY_ACCESS_TOKEN        = "access_token=";
     public static final String KEY_GET_RECENT_MEDIA    = "users/self/media/recent/";
     public static final String KEY_GET_USER            = "users/";
+    public static final String KEY_GET_USER_NAME       = "users/{user-id}/";
     public static final String KEY_GET_USER_MEDIA      = "{user-id}/media/recent/";
     public static final String KEY_SEARCH_USER         = "search";
+    public static final String KEY_FOLLOW_USER         = "{user-id}/relationship/";
 
-    public static final String URL_GET_RECENT_MEDIA    = KEY_GET_RECENT_MEDIA + QUESTION_MARK + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
-    public static final String URL_GET_USER_MEDIA      = KEY_GET_USER +  KEY_GET_USER_MEDIA + QUESTION_MARK +   KEY_ACCESS_TOKEN    +   ACCESS_TOKEN;
+    public static final String URL_GET_RECENT_MEDIA    = KEY_GET_RECENT_MEDIA + QUESTION_MARK   + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
+    public static final String URL_GET_USER_NAME       = KEY_GET_USER +  KEY_GET_USER_NAME      + QUESTION_MARK +   KEY_ACCESS_TOKEN    +   ACCESS_TOKEN;
+    public static final String URL_GET_USER_MEDIA      = KEY_GET_USER +  KEY_GET_USER_MEDIA     + QUESTION_MARK +   KEY_ACCESS_TOKEN    +   ACCESS_TOKEN;
+    public static final String URL_POST_FOLLOW_USER    = KEY_GET_USER +  KEY_FOLLOW_USER        + QUESTION_MARK +   KEY_ACCESS_TOKEN    +   ACCESS_TOKEN;
+
 
 
     public static final String URL_SEARCH_USER         = KEY_GET_USER + KEY_SEARCH_USER + QUESTION_MARK + SIGN_AND+KEY_ACCESS_TOKEN + ACCESS_TOKEN;

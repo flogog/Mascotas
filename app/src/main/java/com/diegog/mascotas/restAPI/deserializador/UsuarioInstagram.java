@@ -20,10 +20,10 @@ public class UsuarioInstagram implements JsonDeserializer<MascotaResponse> {
     public MascotaResponse deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 
         Gson gson = new Gson();
-        MascotaResponse mascotaResponse = gson.fromJson(json, MascotaResponse.class);
-        JsonArray       mascotaResponseData = json.getAsJsonObject().getAsJsonArray(JsonKeys.MEDIA_RESPONSE_ARRAY);
-        JsonObject      mascotaResponseDataObject    = mascotaResponseData.get(0).getAsJsonObject();
-        String          userString                     = mascotaResponseDataObject.get(JsonKeys.USER_ID).getAsString();
+        MascotaResponse mascotaResponse             = gson.fromJson(json, MascotaResponse.class);
+        JsonArray       mascotaResponseData         = json.getAsJsonObject().getAsJsonArray(JsonKeys.MEDIA_RESPONSE_ARRAY);
+        JsonObject      mascotaResponseDataObject   = mascotaResponseData.get(0).getAsJsonObject();
+        String          userString                  = mascotaResponseDataObject.get(JsonKeys.USER_ID).getAsString();
 
         mascotaResponse.setUserId(userString);
         System.out.println("****************************"+mascotaResponse.getUserId());

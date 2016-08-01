@@ -15,6 +15,7 @@ public class Mascota implements Serializable {
     private String      url;
     private int         fav;
     private String      idLike;
+    private String      username;
 
     public Mascota(){
 
@@ -86,5 +87,13 @@ public class Mascota implements Serializable {
 
     public void setIdLike(String idLike) {
         this.idLike = idLike;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

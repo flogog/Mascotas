@@ -11,6 +11,8 @@ public class MascotaResponse {
 
     String userId;
 
+    String username;
+
     String profilePicture;
 
     ArrayList<Mascota> mascotas;
@@ -37,5 +39,13 @@ public class MascotaResponse {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
